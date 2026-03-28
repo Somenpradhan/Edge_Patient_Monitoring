@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ICU Bedside Monitor Theme */
+  --bg-color: #050505;
+  --surface-color: #0a0a0a;
+  --surface-panel: #111111;
+  
+  --primary: #00ffcc;        /* Cyan for standard vitals */
+  --primary-dim: rgba(0, 255, 204, 0.2);
+  
+  --hr-color: #00ff00;       /* Neon Green for Heart Rate */
+  --spo2-color: #00cbff;     /* Blue for Oxygen */
+  --temp-color: #ff9900;     /* Orange for Temp */
+  --resp-color: #ffffff;     /* White for Respiration */
+  
+  /* Status Colors */
+  --status-normal: #00ff00;
+  --status-warning: #ffcc00;
+  --status-critical: #ff0000;
+  
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #888888;
+  --text-muted: #444444;
+  
+  /* Borders */
+  --border-color: #222222;
+  --panel-border: #333333;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base Utility Classes */
+.text-hr { color: var(--hr-color); }
+.text-spo2 { color: var(--spo2-color); }
+.text-temp { color: var(--temp-color); }
+.text-resp { color: var(--resp-color); }
+.text-normal { color: var(--status-normal); }
+.text-warning { color: var(--status-warning); }
+.text-critical { color: var(--status-critical); }
+.text-primary { color: var(--primary); }
+.text-secondary { color: var(--text-secondary); }
+
+/* Animation */
+@keyframes pulse-critical {
+  0% { opacity: 1; text-shadow: 0 0 10px #ff0000; }
+  50% { opacity: 0.5; text-shadow: 0 0 2px #ff0000; }
+  100% { opacity: 1; text-shadow: 0 0 10px #ff0000; }
+}
+.animate-critical {
+  animation: pulse-critical 1s infinite;
+  color: var(--status-critical) !important;
+}
+
+/* Layout */
+#root {
+  min-height: 100vh;
+}

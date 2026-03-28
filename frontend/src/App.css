@@ -1,0 +1,348 @@
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Medical Sidebar */
+.sidebar {
+  width: 250px;
+  background: var(--surface-color);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+
+.sidebar-brand {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sidebar-brand h2 {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sidebar-nav {
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.nav-item:hover {
+  background: var(--surface-panel);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.nav-item.active {
+  background: var(--primary-dim);
+  color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: inset 0 0 10px rgba(0, 255, 204, 0.1);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 2rem;
+  background: var(--bg-color);
+}
+
+.page-header {
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.page-title {
+  font-family: var(--font-sans);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+}
+
+/* ICU Monitor Layout */
+.icu-monitor-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+  .icu-monitor-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Monitor Display Panel */
+.monitor-panel {
+  background: var(--surface-panel);
+  border: 2px solid var(--panel-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+/* Digital Vitals Grid */
+.vitals-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.vital-box {
+  background: #000;
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vital-label-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.vital-name {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.vital-unit {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.vital-value {
+  font-family: var(--font-mono);
+  font-size: 4.5rem;
+  line-height: 1;
+  text-shadow: 0 0 10px currentColor;
+}
+
+/* Chart Area */
+.monitor-chart-area {
+  background: #000;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  height: 350px;
+  padding: 1rem;
+  position: relative;
+}
+
+/* Input Panel (Control Override) */
+.control-panel {
+  background: var(--surface-panel);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.panel-title {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.input-block label {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.input-block input {
+  background: #000;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  border-radius: var(--radius-sm);
+  outline: none;
+}
+
+.input-block input:focus {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 5px var(--primary-dim);
+}
+
+.btn-transmit {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--primary-dim);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  letter-spacing: 2px;
+  transition: all 0.2s;
+}
+
+.btn-transmit:hover:not(:disabled) {
+  background: var(--primary);
+  color: #000;
+  box-shadow: 0 0 15px var(--primary-dim);
+}
+
+.btn-transmit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: var(--text-secondary);
+  color: var(--text-secondary);
+  background: transparent;
+}
+
+/* Status Indicator */
+.diagnosis-banner {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-sans);
+}
+
+.diagnosis-banner.Critical {
+  background: rgba(255, 0, 0, 0.1);
+  border-color: var(--status-critical);
+  color: var(--status-critical);
+  box-shadow: inset 0 0 20px rgba(255,0,0,0.2);
+}
+
+.diagnosis-banner.Warning {
+  background: rgba(255, 204, 0, 0.1);
+  border-color: var(--status-warning);
+  color: var(--status-warning);
+}
+
+.diagnosis-banner.Normal {
+  background: rgba(0, 255, 0, 0.1);
+  border-color: var(--status-normal);
+  color: var(--status-normal);
+}
+
+.diagnosis-banner h3 {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Tables */
+.data-table-wrapper {
+  background: var(--surface-panel);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th, .data-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-table th {
+  background: #000;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+}
+
+.data-table td {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.data-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.loader-container {
+  padding: 5rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
